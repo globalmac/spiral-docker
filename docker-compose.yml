@@ -1,0 +1,50 @@
+services:
+  spiral.test:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: spiral_clocal
+    image: spiral_local
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '80:8080'
+      - '6001:6001'
+    volumes:
+      - '.:/app'
+    networks:
+      - spiral
+    depends_on:
+      - pgsql
+
+  pgsql:
+    image: 'postgres:15'
+    ports:
+      - '5432:5432'
+    environment:
+      PGPASSWORD: 'spiral'
+      POSTGRES_DB: 'spiral'
+      POSTGRES_USER: 'spiral'
+      POSTGRES_PASSWORD: 'spiral'
+    volumes:
+      - 'spiral-pgsql:/var/lib/postgresql/data'
+    networks:
+      - spiral
+    healthcheck:
+      test:
+        - CMD
+        - pg_isready
+        - '-q'
+        - '-d'
+        - 'spiral'
+        - '-U'
+        - 'spiral'
+      retries: 3
+      timeout: 5s
+
+networks:
+  spiral:
+    driver: bridge
+volumes:
+  spiral-pgsql:
+    driver: local
