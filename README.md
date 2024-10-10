@@ -41,10 +41,10 @@ make cmd ?CONTAINER_NAME
 docker-compose run --rm -w /app spiral.test bash -c "composer create-project spiral/app backend && cd backend && chmod +x rr" && docker-compose down
 
 ### Serve
-docker-compose run --rm --service-ports -w /app/backend $(C) bash -c "./rr serve" && docker-compose down
+docker-compose run --rm --service-ports -w /app/backend spiral.test bash -c "./rr serve" && docker-compose down
 
 ### Bash / CommandLine
-docker-compose run --rm -w /app/backend $(C) bash && docker-compose down
+docker-compose run --rm -w /app/backend spiral.test bash && docker-compose down
 
 ```
 
@@ -96,9 +96,9 @@ make cmd ?CONTAINER_NAME
 docker-compose run --rm -w /app spiral.test bash -c "composer create-project spiral/app backend && cd backend && chmod +x rr" && docker-compose down
 
 ### Запуск (RoadRunner)
-docker-compose run --rm --service-ports -w /app/backend $(C) bash -c "./rr serve" && docker-compose down
+docker-compose run --rm --service-ports -w /app/backend spiral.test bash -c "./rr serve" && docker-compose down
 
 ### Bash / консоль
-docker-compose run --rm -w /app/backend $(C) bash && docker-compose down
+docker-compose run --rm -w /app/backend spiral.test bash && docker-compose down
 
 ```
