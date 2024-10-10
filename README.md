@@ -48,6 +48,36 @@ docker-compose run --rm -w /app/backend spiral.test bash && docker-compose down
 
 ```
 
+### Enviroment
+
+Make changes in .env file (**backend** directory) for connect to PostgreSQL :
+
+```env
+# Database
+DB_CONNECTION=pgsql
+DB_HOST=pgsql
+DB_DATABASE=spiral
+DB_USERNAME=spiral
+DB_PASSWORD=spiral
+```
+
+Check connect status:
+
+```bash
+make cmd ?CONTAINER_NAME
+
+php app.php db:list
+
+```
+
+> P.S. Don't forget change **.rr.yaml** (*debug: true*) to force worker reload after every request (full debug mode) and limit processing to a single worker. This can be useful for debugging and development purposes (only local dev).
+
+```
+http:
+  pool:
+    debug: true
+```
+
 ---
 
 # Spiral-PHP-Docker
@@ -101,4 +131,34 @@ docker-compose run --rm --service-ports -w /app/backend spiral.test bash -c "./r
 ### Bash / консоль
 docker-compose run --rm -w /app/backend spiral.test bash && docker-compose down
 
+```
+
+### Правка .env файла
+
+Для нормального коннекта с PostgreSQL нужно поправить **.env** файл в папке **backend**:
+
+```env
+# Database
+DB_CONNECTION=pgsql
+DB_HOST=pgsql
+DB_DATABASE=spiral
+DB_USERNAME=spiral
+DB_PASSWORD=spiral
+```
+
+Проверим коннект:
+
+```bash
+make cmd ?CONTAINER_NAME
+
+php app.php db:list
+
+```
+
+> P.S. Не забудь поправить **.rr.yaml** и добавить *debug: true* чтобы не перезапускать RoadRunner после каждой правки кода (только для локальной разработки).
+
+```
+http:
+  pool:
+    debug: true
 ```
