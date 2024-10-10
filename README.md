@@ -1,5 +1,6 @@
-# Spiral-PHP-Docker / Spiral PHP Framework Docker Pack for fast local development via Docker-Compose
-Spiral PHP Framework Dockerized Pack include:
+# Spiral-PHP-Docker 
+
+Spiral PHP Framework Docker Pack for fast local development via Docker-Compose include:
 
 - PHP 8.3 CLI (with modules *pdo_pgsql pgsql pdo_mysql mbstring exif pcntl bcmath gd sockets*) + Composer
 - PostgreSQL 15
@@ -49,7 +50,9 @@ docker-compose run --rm -w /app/backend $(C) bash && docker-compose down
 
 ---
 
-# Spiral-docker / Рабочее окружение для локальной разработки Spiral PHP Framework в Docker
+# Spiral-PHP-Docker
+
+Рабочее окружение для локальной разработки Spiral PHP Framework в Docker
 
 Включает:
 
