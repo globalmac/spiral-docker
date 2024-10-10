@@ -2,7 +2,7 @@
 
 Spiral PHP Framework Docker Pack for fast local development via Docker-Compose include:
 
-- PHP 8.3 CLI (with modules *pdo_pgsql pgsql pdo_mysql mbstring exif pcntl bcmath gd sockets*) + Composer
+- PHP 8.3 CLI (with modules *bcmath, gd, intl, mbstring, opcache, pdo, pdo_mysql, pdo_pgsql, sockets, simplexml, xsl, soap, dom, iconv, zip, redis, imagick, xdebug*) + Composer
 - PostgreSQL 15
 - RoadRunner server-side
 
@@ -86,7 +86,7 @@ http:
 
 Включает:
 
-- PHP 8.3 CLI (с модулями *pdo_pgsql pgsql pdo_mysql mbstring exif pcntl bcmath gd sockets*) + Composer
+- PHP 8.3 CLI (с модулями *bcmath, gd, intl, mbstring, opcache, pdo, pdo_mysql, pdo_pgsql, sockets, simplexml, xsl, soap, dom, iconv, zip, redis, imagick, xdebug*) + Composer
 - PostgreSQL 15
 - Все запускается через RoadRunner
 
